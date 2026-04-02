@@ -1,13 +1,17 @@
 #!/usr/bin/env node
 
 const { program } = require('commander');
+const path = require('path');
 const { startCli } = require('../cli/parser');
 
+const scriptPath = process.argv[1] || '';
+const commandName = scriptPath ? path.basename(scriptPath).replace(/\.[jt]s$/, '') : 'tbarp';
+
 program
-  .name('touchbar-plus')
+  .name(commandName)
   .description('Turn your MacBook Pro Touch Bar into a live, customizable display')
   .version('1.0.0')
-  .option('-m, --mode <type>', 'Mode (crypto, rss, system, weather, battery, network, custom)', 'system')
+  .option('-m, --mode <type>', 'Mode (crypto, rss, system, weather, battery, network, image, gif, custom)', 'system')
   .option('-s, --symbol <symbol>', 'Crypto symbol (e.g., BTCUSDT)', 'BTCUSDT')
   .option('-f, --feed <url>', 'RSS feed URL')
   .option('-l, --file <path>', 'File path for gif or image modes')

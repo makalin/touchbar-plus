@@ -4,10 +4,10 @@ Turn your MacBook Pro Touch Bar into a live, customizable display for real-time 
 
 ## Features
 
-- 📈 Live crypto ticker (Binance, CoinGecko)
+- 📈 Live crypto ticker (Binance)
 - 📰 RSS / Atom feed scrolling
 - 🎞 GIF & lightweight animation support
-- 🖼 Custom images / screensaver mode
+- 🖼 Image mode (file-based placeholder: shows filename/path)
 - ⏱ Clock + system stats (CPU, RAM)
 - 🔋 Battery monitoring (Charge, Time Remaining)
 - 🌐 Network traffic (Real-time speed monitoring)
@@ -15,6 +15,7 @@ Turn your MacBook Pro Touch Bar into a live, customizable display for real-time 
 - 🔌 Plugin-based architecture (Sanitized & Secure)
 - ⚡ Fast, local-first rendering (Chalk-powered TUI)
 - 🎛 CLI + config driven (Zod validation)
+- 🎨 Theme support via config (`dark` / `light`)
 
 ## Security
 
@@ -25,16 +26,21 @@ TouchBar+ is built with security in mind:
 
 ## Usage
 
+The short, recommended command is `tbarp`. The older `touchbar-plus` command is still supported as an alias.
+
 ```bash
-# New Modes
-touchbar-plus --mode battery
-touchbar-plus --mode network
-touchbar-plus --mode weather --city "New York" --key YOUR_API_KEY
+# New Modes (recommended)
+tbarp --mode battery
+tbarp --mode network
+tbarp --mode weather --city "New York" --key YOUR_API_KEY
 
 # Existing Modes
-touchbar-plus --mode crypto --symbol BTCUSDT
-touchbar-plus --mode rss --feed https://news.ycombinator.com/rss
-touchbar-plus --mode system --rate 1
+tbarp --mode crypto --symbol BTCUSDT
+tbarp --mode rss --feed https://news.ycombinator.com/rss
+tbarp --mode system --rate 1
+
+# Backwards-compatible alias
+touchbar-plus --mode battery
 ```
 
 ## Config Example
@@ -61,11 +67,18 @@ module.exports = {
 
 ## Roadmap
 
-* [ ] Multi-widget split view
-* [ ] Touch interaction support
-* [ ] Web dashboard
-* [ ] Weather widgets
-* [ ] Music integrations
+* [ ] Multi-widget split view (run multiple modes at once)
+* [ ] Touch interaction support (tap/scroll gestures on supported models)
+* [ ] Web dashboard (configure modes, preview, and manage plugins)
+* [ ] Weather widgets (hourly forecast + icons)
+* [ ] Music integrations (local library + streaming)
+
+## Future Improvements
+* [ ] Image mode: render previews/ASCII thumbnails instead of just filenames
+* [ ] GIF mode: real frame rendering (optional) with better performance controls
+* [ ] Config hot-reload while the engine is running
+* [ ] Smarter caching/backoff for RSS + external APIs to reduce rate limits
+* [ ] Plugin directory management (install/remove/update + signed plugins)
 
 ## Author
 

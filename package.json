@@ -4,6 +4,7 @@
   "description": "Turn your MacBook Pro Touch Bar into a live, customizable display for real-time data, visuals, and ambient information.",
   "main": "cli/parser.js",
   "bin": {
+    "tbarp": "./bin/touchbar-plus.js",
     "touchbar-plus": "./bin/touchbar-plus.js"
   },
   "scripts": {
